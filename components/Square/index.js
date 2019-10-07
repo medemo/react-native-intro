@@ -1,31 +1,38 @@
-import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
-import { css } from '@emotion/native'
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { Text, TouchableOpacity, Dimensions, StyleSheet } from 'react-native'
 
-import GameContext from '../../context'
 
-export default props => {
-  const { squares, play } = useContext(GameContext)
+export default ({ value, index }) => {
+  const dispatch = useDispatch()
   const size = 0.8 * Dimensions.get('window').width / 3
-  const value = squares[props.index]
+
+  const handlePress = () => {
+    !value && dispatch({ type: 'PLAY', index })
+  }
 
   return (
     <TouchableOpacity
-      onPress={() => !value && play(props.index)}
-      style={css`
-        width: ${String(size)};
-        height: ${String(size)};
-        justify-content: center;
-        border: solid orange;`}
+      onPress={handlePress}
+      style={[styles.square, { width: size, height: size }]}
     >
-      <Text style={css`
-        text-align: center;
-        font-size: 48;
-        font-weight: bold;
-        color: ${value === 'X' ? 'blue' : 'red'};
-      `}>
+      <Text style={[styles.squareText, { color: value === 'X' ? 'blue' : 'red' }]}>
         {value}
       </Text>
     </TouchableOpacity>
   )
 }
+
+const styles = StyleSheet.create({
+  square: {
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'orange',
+  },
+  squareText: {
+    textAlign: 'center',
+    fontSize: 48,
+    fontWeight: 'bold'
+  }
+})

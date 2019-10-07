@@ -1,23 +1,33 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react'
+import { createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { View, StyleSheet } from 'react-native'
+import { Provider } from 'react-redux'
+import Constants from 'expo-constants'
 
-import Game from './components/Game'
+import Home from './screens/Home'
+import Game from './screens/Game'
+import store from './store'
 
 
-export default function App() {
+const AppContainer = createAppContainer(
+  createBottomTabNavigator({
+    Home,
+    Game
+  })
+)
 
-  return (
+export default () => (
+  <Provider store={store}>
     <View style={styles.container}>
-      <Game />
+      <AppContainer />
     </View>
-  );
-}
+  </Provider>
+)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    marginTop: Constants.statusBarHeight
+  }
+})
