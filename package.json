@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.21",
+    "@emotion/native": "^10.0.14",
     "expo": "^35.0.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
