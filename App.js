@@ -7,13 +7,15 @@ import Constants from 'expo-constants'
 
 import Home from './screens/Home'
 import Game from './screens/Game'
+import ScoreBoard from './screens/ScoreBoard'
 import store from './store'
 
 
 const AppContainer = createAppContainer(
   createBottomTabNavigator({
     Home,
-    Game
+    Game,
+    ScoreBoard
   })
 )
 

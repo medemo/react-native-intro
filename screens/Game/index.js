@@ -2,8 +2,9 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
+import { Ionicons } from '@expo/vector-icons'
 
-import Board from '../../components/Board'
+import Board from './components/Board'
 
 const Game = ({ navigation }) => {
   const turn = useSelector(state => state.turn)
@@ -41,7 +42,7 @@ const Reset = ({ navigation }) => {
   )
 }
 
-export default createStackNavigator({
+const GameStack = createStackNavigator({
   Game,
   Reset
 }, {
@@ -50,6 +51,13 @@ export default createStackNavigator({
   }
 })
 
+GameStack.navigationOptions = {
+  tabBarIcon: ({ tintColor }) => {
+    return <Ionicons name="logo-game-controller-b" size={25} color={tintColor} />;
+  }
+}
+
+export default GameStack
 
 const styles = StyleSheet.create({
   container: {

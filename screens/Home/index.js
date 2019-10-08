@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
+import { Ionicons } from '@expo/vector-icons'
 
 
-export default () => {
+const Home = () => {
   const [joke, setJoke] = useState(null)
 
   useEffect(() => {
@@ -33,3 +34,11 @@ const styles = StyleSheet.create({
     fontSize: 36
   },
 });
+
+Home.navigationOptions = {
+  tabBarIcon: ({ tintColor }) => {
+    return <Ionicons name="md-home" size={25} color={tintColor} />;
+  }
+}
+
+export default Home
