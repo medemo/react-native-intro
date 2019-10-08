@@ -12,6 +12,7 @@ const Home = () => {
       .then(({ data }) => {
         setJoke(data)
       })
+      .catch(err => console.log(err.message))
   }, [])
 
   return (

@@ -26,7 +26,7 @@ export default ({ value, index }) => {
 const styles = StyleSheet.create({
   square: {
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderStyle: 'solid',
     borderColor: 'orange',
   },

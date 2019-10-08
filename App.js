@@ -16,6 +16,8 @@ const AppContainer = createAppContainer(
     Home,
     Game,
     ScoreBoard
+  }, {
+    initialRouteName: 'ScoreBoard'
   })
 )
 
