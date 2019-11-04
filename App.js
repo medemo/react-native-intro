@@ -1,23 +1,21 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react'
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
+import HomeNavigation from './navigations/HomeNavigation'
 import Game from './components/Game'
 
-
-export default function App() {
-
-  return (
-    <View style={styles.container}>
-      <Game />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const AppNavigator = createBottomTabNavigator({
+  Home: HomeNavigation,
+  Game: Game,
+}, {
+  // defaultNavigationOptions: ({ navigation }) => ({
+  //   tabBarIcon: ({ focused, horizontal, tintColor }) => {
+  //     return <Ionicons name='ios-options' size={25} color={tintColor} />;
+  //   },
+  // }),
 });
+
+
+export default createAppContainer(AppNavigator);
