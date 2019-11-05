@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { css } from '@emotion/native'
 import { Ionicons } from '@expo/vector-icons';
 
-import GameContext from '../../context'
-import Board from '../Board'
+import GameContext from '../context'
+import Board from '../components/Board'
 
 export default function Game() {
   const [gameState, setGameState] = useState({
@@ -55,11 +55,11 @@ export default function Game() {
               width: '60%'
             }}>
             <Text style={css`
-            font-size: 20;
-            font-weight: bold;
-            color: white;
-            text-align: center
-          `}>
+              font-size: 20;
+              font-weight: bold;
+              color: white;
+              text-align: center
+            `}>
               Reset</Text>
           </TouchableOpacity>
         </View>
